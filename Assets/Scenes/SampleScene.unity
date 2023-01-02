@@ -491,6 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 1
+  prefabEnemigo: {fileID: 9217388688388020072, guid: 6236bcfdafea434458dc6d51f30e6582, type: 3}
 --- !u!1 &1248069072
 GameObject:
   m_ObjectHideFlags: 0
