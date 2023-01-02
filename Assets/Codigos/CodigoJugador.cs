@@ -20,7 +20,7 @@ public class CodigoJugador : MonoBehaviour
         float pixelesPorUnidad = 100; //Variable que haga que para fotograma el coche se mueva 1 pixel porque 1 unidad = 100 pixeles;
         float movimientoLateral = Input.GetAxis("Horizontal") / pixelesPorUnidad * velocidadMovimiento; //Movimiento en el eje horizontal en el joystick, dividido entre 100 y por la velocidad que le asignemmos
 
-        Vector3 posicionActual = gameObject.transform.position; //Obtengo la posición de X
+        Vector3 posicionActual = gameObject.transform.position; //Obtengo la posición íntegra del objeto (X, Y, Z)
         posicionActual.x = posicionActual.x + movimientoLateral; //La modifico dependiendo del  movimiento lateral (joystick)
         gameObject.transform.position = posicionActual; //Devuelvo el valor a la variable original
     }
