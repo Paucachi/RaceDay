@@ -6,6 +6,7 @@ public class CodigoJugador : MonoBehaviour
 {
     public Vector3 posicionInicial;
     public float velocidadMovimiento; //Variable para dar valor a la velocidad
+    public GameObject carretera;
 
     // Start is called before the first frame update
     void Start()
@@ -24,4 +25,28 @@ public class CodigoJugador : MonoBehaviour
         posicionActual.x = posicionActual.x + movimientoLateral; //La modifico dependiendo del  movimiento lateral (joystick)
         gameObject.transform.position = posicionActual; //Devuelvo el valor a la variable original
     }
+
+    //Método para finalizar juego al colisionar
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("ADIOS");
+
+       
+        GameObject [] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+
+        foreach (GameObject coche in enemigos)
+        {
+            Destroy(coche);
+
+        }
+
+        carretera.GetComponent<CodigoCarretera>().FinJuego(); //Cogemos el componente y accedemos al método de finalizar el juego
+
+        
+
+    }
+
 }
+
+
+
