@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class CodigoJugador : MonoBehaviour
 {
-    public Vector3 posicionInicial;
+    public Vector3 posicionInicial; //Inicia el coche en la posición indicada
     public float velocidadMovimiento; //Variable para dar valor a la velocidad
-    public GameObject carretera;
+    public GameObject carretera; //Variable de tipo objeto para la carretera
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("HOLA");
         
     }
 
@@ -26,13 +25,11 @@ public class CodigoJugador : MonoBehaviour
         gameObject.transform.position = posicionActual; //Devuelvo el valor a la variable original
     }
 
-    //Método para finalizar juego al colisionar
+    //Método para finalizar juego al colisionar con un coche enemigo y que desaparezcan todos los coches que haya en la pantalla
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("ADIOS");
-
-       
-        GameObject [] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+        //Todos los coches enemigos que hay en la pantalla desaparecerán
+        GameObject [] enemigos = GameObject.FindGameObjectsWithTag("Enemigo"); 
 
         foreach (GameObject coche in enemigos)
         {
@@ -40,7 +37,8 @@ public class CodigoJugador : MonoBehaviour
 
         }
 
-        carretera.GetComponent<CodigoCarretera>().FinJuego(); //Cogemos el componente y accedemos al método de finalizar el juego
+        //Accedemos al método de finalizar el juego que está en el "CodigoCarretera"
+        carretera.GetComponent<CodigoCarretera>().FinJuego();
 
         
 
